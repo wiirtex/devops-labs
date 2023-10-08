@@ -7,7 +7,7 @@ from app_python.src.main import app
 
 
 class ClientTest(unittest.TestCase):
-    def test_client(self):
+    def testClient(self):
         client = TestClient(app)
 
         first = client.get("/")
