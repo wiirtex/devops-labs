@@ -1,13 +1,20 @@
 import datetime
+import logging
 import time
 import unittest
+import visits_counter
 
 
 class TimerTest(unittest.TestCase):
     def testTimer(self):
         from app_python.src import service
 
-        timer = service.Timer()
+        logger = logging.getLogger()
+        logger.setLevel(logging.INFO)
+
+        visits = visits_counter.VisitsCounter('test.txt')
+
+        timer = service.Timer(visits, logger)
 
         self.assertIsNotNone(timer)
 
